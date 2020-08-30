@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/diary/close_button.png" type="Texture" id=1]
+[ext_resource path="res://Components/Diary/Diary.gd" type="Script" id=2]
+[ext_resource path="res://assets/diary/close_button_pressed.png" type="Texture" id=3]
+[ext_resource path="res://assets/flowers/daisy_3-mememto.png" type="Texture" id=4]
+[ext_resource path="res://assets/diary/journal_40s.png" type="Texture" id=5]
+[ext_resource path="res://assets/sfx/closingJournal.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/openingJournal.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sfx/writingJournal.wav" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/Caveat-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = SubResource( 1 )
+
+[node name="Diary" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DarkBackground" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="TextureButton" parent="Control"]
+margin_left = 414.115
+margin_top = -552.342
+margin_right = 577.115
+margin_bottom = -389.342
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Journal" type="TextureRect" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -621.53
+margin_top = -653.381
+margin_right = 658.47
+margin_bottom = 187.619
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Control"]
+margin_left = 55.0
+margin_top = -528.0
+margin_right = 365.0
+margin_bottom = -70.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "I had a lovely chat in the flower shop today. She was looking for the right pot for her new plants and the employees were too busy to help her, so I did. We bonded over the recent changes in our life and her relentless optimism just lifted me. She had the most marvelous laugh. Warm, like sunshine in the beginning of spring. Our hands brushed when we reached for the same pot. God... I hope she didn’t notice me blushing... I hope I see her again."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hand" type="TextureRect" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -315.117
+margin_top = -588.327
+margin_right = 964.883
+margin_bottom = 252.673
+grow_horizontal = 2
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Memento" type="TextureRect" parent="Control"]
+margin_left = -304.0
+margin_top = -499.0
+margin_right = -46.0
+margin_bottom = -160.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Close" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 7 )
+
+[node name="Open" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 8 )
+
+[node name="Writing" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 9 )
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_tween_all_completed"]
+[connection signal="pressed" from="Control/CloseButton" to="." method="_on_CloseButton_pressed"]

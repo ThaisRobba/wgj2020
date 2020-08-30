@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/talking.wav-799f30474681db3f6ad757e2d77c5a2c.sample"
+
+[deps]
+
+source_file="res://assets/sfx/talking.wav"
+dest_files=[ "res://.import/talking.wav-799f30474681db3f6ad757e2d77c5a2c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

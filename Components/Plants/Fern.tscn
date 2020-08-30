@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Components/Plants/Fern.gd" type="Script" id=1]
+[ext_resource path="res://assets/pots/background_Pot6.png" type="Texture" id=2]
+[ext_resource path="res://assets/flowers/fern_1.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 108.24, 178.576 )
+
+[node name="Fern" type="Area2D"]
+script = ExtResource( 1 )
+base_day = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 10.7797, -85.6581 )
+shape = SubResource( 1 )
+
+[node name="Pot" type="Sprite" parent="."]
+position = Vector2( 9.42813, -82.2558 )
+scale = Vector2( 1.45472, 1.45472 )
+texture = ExtResource( 2 )
+
+[node name="Flower" type="Sprite" parent="."]
+position = Vector2( 7.24942, -41.605 )
+scale = Vector2( 0.565852, 0.565852 )
+texture = ExtResource( 3 )

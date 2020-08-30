@@ -1,0 +1,80 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Components/RadialMenu/RadialMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/icons/icons_water-disabled.png" type="Texture" id=2]
+[ext_resource path="res://assets/icons/icons_water-pressed.png" type="Texture" id=3]
+[ext_resource path="res://assets/icons/icons_medicine.png" type="Texture" id=4]
+[ext_resource path="res://assets/icons/icons_prepareSoil.png" type="Texture" id=5]
+[ext_resource path="res://assets/icons/icons_prepareSoil-pressed.png" type="Texture" id=6]
+[ext_resource path="res://assets/icons/icons_medicine-pressed.png" type="Texture" id=7]
+[ext_resource path="res://assets/icons/icons_chat.png" type="Texture" id=8]
+[ext_resource path="res://assets/icons/icons_prune-disabled.png" type="Texture" id=9]
+[ext_resource path="res://assets/icons/icons_water.png" type="Texture" id=10]
+[ext_resource path="res://assets/icons/icons_prune.png" type="Texture" id=11]
+[ext_resource path="res://assets/icons/icons_chat-disabled.png" type="Texture" id=12]
+[ext_resource path="res://assets/icons/icons_chat-pressed.png" type="Texture" id=13]
+[ext_resource path="res://assets/icons/icons_prepareSoil-disabled.png" type="Texture" id=14]
+[ext_resource path="res://assets/icons/icons_medicine-disabled.png" type="Texture" id=15]
+[ext_resource path="res://assets/icons/icons_prune-pressed.png" type="Texture" id=16]
+
+[node name="RadialMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Container" parent="."]
+margin_left = -2.0
+margin_top = 1.0
+margin_right = 94.0
+margin_bottom = 97.0
+rect_scale = Vector2( 0.25, 0.25 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="prune" type="TextureButton" parent="Container"]
+margin_right = 419.0
+margin_bottom = 419.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 16 )
+texture_disabled = ExtResource( 9 )
+
+[node name="prepare_soil" type="TextureButton" parent="Container"]
+margin_right = 419.0
+margin_bottom = 419.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_disabled = ExtResource( 14 )
+
+[node name="dialog" type="TextureButton" parent="Container"]
+margin_right = 96.0
+margin_bottom = 96.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 13 )
+texture_disabled = ExtResource( 12 )
+
+[node name="heal" type="TextureButton" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 7 )
+texture_disabled = ExtResource( 15 )
+
+[node name="water" type="TextureButton" parent="Container"]
+margin_right = 419.0
+margin_bottom = 419.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 3 )
+texture_disabled = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="pressed" from="Container/prune" to="." method="_on_prune_pressed"]
+[connection signal="pressed" from="Container/prepare_soil" to="." method="_on_prepare_soil_pressed"]
+[connection signal="pressed" from="Container/dialog" to="." method="_on_dialog_pressed"]
+[connection signal="pressed" from="Container/heal" to="." method="_on_heal_pressed"]
+[connection signal="pressed" from="Container/water" to="." method="_on_water_pressed"]

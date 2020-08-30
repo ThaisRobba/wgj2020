@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Components/Plants/Plant.gd" type="Script" id=1]
+[ext_resource path="res://assets/pots/background_Pot3.png" type="Texture" id=2]
+[ext_resource path="res://assets/flowers/carnation_budding.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 81.8699, 207.823 )
+
+[node name="Carnation" type="Area2D"]
+script = ExtResource( 1 )
+base_day = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 9.78886, -199.781 )
+shape = SubResource( 1 )
+
+[node name="Pot" type="Sprite" parent="."]
+position = Vector2( 3.59921, -49.5549 )
+scale = Vector2( 1.29251, 1.29251 )
+texture = ExtResource( 2 )
+
+[node name="Flower" type="Sprite" parent="."]
+position = Vector2( 13.3788, -236.989 )
+scale = Vector2( 0.427365, 0.427364 )
+texture = ExtResource( 3 )

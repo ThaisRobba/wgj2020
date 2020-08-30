@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/pots/background_Pot8.png" type="Texture" id=1]
+[ext_resource path="res://assets/flowers/mementoFlorum_6-sprout.png" type="Texture" id=2]
+[ext_resource path="res://Components/Plants/Memento.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 357.926, 262.281 )
+
+[node name="Memento" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="Pot" type="Sprite" parent="."]
+position = Vector2( 0.0562897, -31.4291 )
+scale = Vector2( 1.996, 1.86592 )
+texture = ExtResource( 1 )
+
+[node name="Flower" type="Sprite" parent="."]
+position = Vector2( 5.92663, -420.677 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 14.6694, -111.73 )
+shape = SubResource( 1 )

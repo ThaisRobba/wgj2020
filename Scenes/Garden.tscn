@@ -1,0 +1,114 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Components/RadialMenu/RadialMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Garden.gd" type="Script" id=2]
+[ext_resource path="res://Components/Title/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Components/Plants/Berries.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Components/Diary/Diary.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Components/Background/Background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sfx/watering.wav" type="AudioStream" id=7]
+[ext_resource path="res://Components/Plants/Sunflower.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/foreground.png" type="Texture" id=9]
+[ext_resource path="res://Components/Plants/Carnation.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Components/Plants/Fern.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/Memento.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Components/Plants/Roses.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Components/Plants/Daisies.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Components/Plants/Pansies.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Components/Credits/Credits.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/sfx/changingSoil.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/sfx/talking.wav" type="AudioStream" id=18]
+[ext_resource path="res://assets/sfx/pruning.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/sfx/medicining.wav" type="AudioStream" id=20]
+[ext_resource path="res://assets/bgm/BG_MUSIC_doxent_-_Passing.ogg" type="AudioStream" id=21]
+[ext_resource path="res://assets/bgm/OPENING_ENDING_airtone_-_forgottenland.ogg" type="AudioStream" id=22]
+
+[node name="Garden" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Background" parent="." instance=ExtResource( 6 )]
+
+[node name="Foreground" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="Plants" type="Node2D" parent="."]
+
+[node name="Berries" parent="Plants" instance=ExtResource( 4 )]
+position = Vector2( 132.5, 746.758 )
+
+[node name="Sunflower" parent="Plants" instance=ExtResource( 8 )]
+position = Vector2( 1196.42, 410.291 )
+
+[node name="Carnation" parent="Plants" instance=ExtResource( 10 )]
+position = Vector2( 336.529, 696.34 )
+
+[node name="Fern" parent="Plants" instance=ExtResource( 11 )]
+position = Vector2( 1573.46, 288.362 )
+
+[node name="Roses" parent="Plants" instance=ExtResource( 13 )]
+position = Vector2( 1680, 666.667 )
+
+[node name="Pansies" parent="Plants" instance=ExtResource( 15 )]
+position = Vector2( 956, 409.333 )
+
+[node name="Daisies" parent="Plants" instance=ExtResource( 14 )]
+position = Vector2( 533.333, 422.667 )
+
+[node name="Memento" parent="Plants" instance=ExtResource( 12 )]
+position = Vector2( 965.333, 890.667 )
+
+[node name="RadialMenu" parent="." instance=ExtResource( 1 )]
+margin_left = 0.672058
+margin_top = 0.624008
+margin_right = 40.6721
+margin_bottom = 40.624
+
+[node name="Diary" parent="." instance=ExtResource( 5 )]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="Title" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="Credits" parent="." instance=ExtResource( 16 )]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="water" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 7 )
+volume_db = 0.941
+
+[node name="dialog" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 18 )
+volume_db = 0.5
+
+[node name="prune" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 19 )
+volume_db = 0.5
+
+[node name="prepare_soil" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 17 )
+volume_db = 2.0
+
+[node name="heal" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 20 )
+volume_db = 2.0
+
+[node name="BGM" type="Node2D" parent="."]
+
+[node name="opening" type="AudioStreamPlayer" parent="BGM"]
+stream = ExtResource( 22 )
+autoplay = true
+
+[node name="ambience" type="AudioStreamPlayer" parent="BGM"]
+stream = ExtResource( 21 )
+volume_db = -10.0
